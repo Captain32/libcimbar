@@ -50,10 +50,6 @@ if(NOT DEFINED OPENCV_LIBS)
 	set(OPENCV_LIBS "opencv_calib3d" "opencv_imgcodecs" "opencv_imgproc" "opencv_photo" "opencv_core" ${OPENCV4_STATIC_LIBRARIES})
 endif()
 
-if(NOT DEFINED CPPFILESYSTEM)
-	set(CPPFILESYSTEM "stdc++fs")
-endif()
-
 if(MSVC)
 	set(CPPFILESYSTEM "")
 endif()
@@ -62,11 +58,9 @@ set (PROJECTS
 	src/lib/bit_file
 	src/lib/chromatic_adaptation
 	src/lib/cimb_translator
-	src/lib/cimbar_js
 	src/lib/compression
 	src/lib/encoder
 	src/lib/fountain
-	src/lib/gui
 	src/lib/image_hash
 	src/lib/serialize
 	src/lib/util
@@ -86,9 +80,6 @@ set(PROJECTS
 	src/lib/extractor
 
 	src/exe/cimbar
-	src/exe/cimbar_extract
-	src/exe/cimbar_recv
-	src/exe/cimbar_send
 	src/exe/build_image_assets
 )
 endif()

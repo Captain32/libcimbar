@@ -55,9 +55,9 @@ APP并未使用互联网/蓝牙/NFC等，所有数据都是通过摄像头传输
 
 ## 构建
 
-1. 在 Ubuntu/Debian 上安装 opencv 和 GLFW 。如下：
+1. 安装 opencv 。如下：
 ```
-sudo apt install libopencv-dev libglfw3-dev libgles2-mesa-dev
+all_proxy=socks5h://127.0.0.1:1089 brew install opencv
 ```
 
 2. 运行 cmake + make
@@ -80,19 +80,9 @@ make install
 ./cimbar --encode -i inputfile.txt -o outputprefix
 ```
 
-解码（释放文件到输出目录）：
+解码（释放文件）：
 ```
-./cimbar outputprefix*.png -o /tmp
-```
-
-从`stdin`解码一系列编码图像：
-```
-echo outputprefix*.png | ./cimbar -o /tmp
-```
-
-对窗口进行编码并设置动画：
-```
-./cimbar_send inputfile.pdf
+./cimbar outputprefix*.png
 ```
 
 您还可以使用 [cimbar.org](https://cimbar.org) 对文件进行编码，或最新的 [release](https://github.com/sz3/libcimbar/releases/latest).

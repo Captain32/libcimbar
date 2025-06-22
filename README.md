@@ -55,9 +55,9 @@ Crucially, because the encoder compiles to asmjs and wasm, it can run on anythin
 
 ## Build
 
-1. install opencv and GLFW. On ubuntu/debian, this looks like:
+1. install opencv:
 ```
-sudo apt install libopencv-dev libglfw3-dev libgles2-mesa-dev
+all_proxy=socks5h://127.0.0.1:1089 brew install opencv
 ```
 
 2. run the cmake + make incantation
@@ -80,19 +80,9 @@ Encode:
 ./cimbar --encode -i inputfile.txt -o outputprefix
 ```
 
-Decode (extracts file into output directory):
+Decode (extracts file):
 ```
-./cimbar outputprefix*.png -o /tmp
-```
-
-Decode a series of encoded images from stdin:
-```
-echo outputprefix*.png | ./cimbar -o /tmp
-```
-
-Encode and animate to window:
-```
-./cimbar_send inputfile.pdf
+./cimbar outputprefix*.png
 ```
 
 You can also encode a file using [cimbar.org](https://cimbar.org), or the latest [release](https://github.com/sz3/libcimbar/releases/latest).
