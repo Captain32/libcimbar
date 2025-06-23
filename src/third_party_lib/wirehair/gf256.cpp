@@ -33,7 +33,6 @@
 #include <unistd.h>
 #include <fcntl.h>
 #include <elf.h>
-#include <linux/auxvec.h>
 #endif
 
 //------------------------------------------------------------------------------
