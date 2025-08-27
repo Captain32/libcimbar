@@ -79,6 +79,8 @@ Encode:
 * large input files may fill up your disk with pngs!
 
 ```
+git format-patch -1 HEAD
+
 dist/bin/cimbar --encode -i inputfile.txt -o outputprefix
 
 convert -delay 1 -loop 1 outputprefix_*.png output.gif
@@ -89,6 +91,8 @@ Decode (extracts file):
 convert -coalesce output.gif outputprefix_%d.png
 
 dist/bin/cimbar outputprefix_*.png
+
+git am output.patch
 ```
 
 You can also encode a file using [cimbar.org](https://cimbar.org), or the latest [release](https://github.com/sz3/libcimbar/releases/latest).
