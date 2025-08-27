@@ -55,9 +55,11 @@ Crucially, because the encoder compiles to asmjs and wasm, it can run on anythin
 
 ## Build
 
-1. install opencv:
+1. install opencv and imagemagick:
 ```
 all_proxy=socks5h://127.0.0.1:1089 brew install opencv
+
+brew install imagemagick
 ```
 
 2. run the cmake + make incantation
@@ -77,12 +79,16 @@ Encode:
 * large input files may fill up your disk with pngs!
 
 ```
-./cimbar --encode -i inputfile.txt -o outputprefix
+dist/bin/cimbar --encode -i inputfile.txt -o outputprefix
+
+convert -delay 1 -loop 1 outputprefix_*.png output.gif
 ```
 
 Decode (extracts file):
 ```
-./cimbar outputprefix*.png
+convert -coalesce output.gif outputprefix_%d.png
+
+dist/bin/cimbar outputprefix_*.png
 ```
 
 You can also encode a file using [cimbar.org](https://cimbar.org), or the latest [release](https://github.com/sz3/libcimbar/releases/latest).
